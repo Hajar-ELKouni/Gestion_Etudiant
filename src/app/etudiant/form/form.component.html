@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="actionEtudiant()">
+  <button id="close_btn" type="button" class="btn btn-danger" (click)="closeModale()">X</button>
+  <div class="row">
+      <div class="row">
+          <h2>{{action}} un étudiant</h2>
+      </div>
+      <div class="row">
+          <input formControlName="id" type="text" class="form-control" placeholder="Id">
+      </div>
+      <div class="row">
+          <input formControlName="nom" type="text" class="form-control" placeholder="Nom">
+      </div>
+      <div class="row">
+          <input formControlName="age" type="text" class="form-control" placeholder="Age">
+      </div>
+            <div class="row">
+                <select formControlName="filiere" class="form-control">
+                @for (filiere of filieres(); track filiere.id) {
+                    <option  [value]="filiere.id">
+                    {{ filiere.nomFiliere }}
+                    </option>
+                }
+                    </select>
+       
+      </div>
+      <div class="row">
+          <input type="file" (change)="fileSelected($event)" class="form-control">
+      </div>
+
+  </div>
+  <button id="valider" type="submit" class="btn btn-primary">{{action}}</button>
+</form>

@@ -1,0 +1,12 @@
+.actionIcon{
+    width:24px;
+    cursor:pointer;
+}
+.photo {
+    width: 60px;
+    height: 60px;
+}
+select {
+    margin: 20px;
+    width: 300px;
+}

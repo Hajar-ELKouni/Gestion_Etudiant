@@ -1,0 +1,34 @@
+<select class="form-select" aria-label="Default select example" (change)="onSelectFiliere($event)">
+      <option selected>sélection d'une filière</option>
+  @for (filiere of filieres(); track filiere.id) {
+      <option  [value]="filiere.id">
+        {{ filiere.nomFiliere }}
+      </option>
+    }
+</select>
+<div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Age</th>
+        <th scope="col">filiere</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (etudiant of etudiants(); track etudiant.id) {
+      <tr>
+        <td>{{ etudiant.id }}</td>
+        <td>{{ etudiant.nom }}</td>
+        <td>{{ etudiant.age }}</td>
+        <td>{{ etudiant.filiere.nomFiliere }}</td>
+        <td><img src="{{ etudiant.photo }}" class="photo" ></td>
+        <td><img src="img/deleteIcon.png" class="actionIcon" (click)="openDeleteModal(etudiant)"></td>
+        <td><img src="img/updateIcon.png" class="actionIcon" (click)="updateEtudiant(etudiant)"></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
